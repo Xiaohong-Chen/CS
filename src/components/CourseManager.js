@@ -4,6 +4,7 @@ import {BrowserRouter, Route} from "react-router-dom"
 import CourseTableComponent from "./CourseTableComponent";
 import CourseGridComponent from "./CourseGridComponent";
 import NavigationComponent from "./NavigationComponent";
+import CourseEditorContainer from "../containers/CourseEditorContainer";
 import CourseEditorComponent from "./CourseEditorComponent";
 
 class CourseManager extends React.Component {
@@ -71,7 +72,8 @@ class CourseManager extends React.Component {
                         <CourseGridComponent courses={this.state.courses} deleteCourse={this.deleteCourse}
                                              editCourse={this.editCourse}/>
                     </Route>
-                    <Route path="/courseEditor/:courseId" component={CourseEditorComponent}></Route>
+                    <Route path={["/courseEditor/:courseId", "/courseEditor/:courseId/modules/:moduleId", "/courseEditor/:courseId/modules/:moduleId/lessons/:lessonId"]}
+                           exact component={CourseEditorContainer}></Route>
                 </div>
             </BrowserRouter>
         )

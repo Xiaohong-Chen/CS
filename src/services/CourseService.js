@@ -1,4 +1,4 @@
-const url = "http://wbdv-generic-server.herokuapp.com/api/%7BSomethingUnique%7D/courses"
+const url = "http://wbdv-generic-server.herokuapp.com/api/001571524/courses"
 
 /*creates a new course instance and adds it to the collection of courses*/
 export const createCourse = (newCourse) => {
@@ -54,3 +54,4 @@ export const deleteCourse = (courseId) => {
     )
 }
 
+export default {findCourseById}
