@@ -1,11 +1,10 @@
 import React, {Component} from "react";
 
-import ModuleListComponent from "../containers/ModuleListContainer";
-import LessonTabsComponent from "./LessonTabsComponent";
 import ModuleListContainer from "../containers/ModuleListContainer";
 import LessonTabsContainer from "../containers/LessonTabsContainer";
-import TopicPillsComponent from "./TopicPillsComponent";
 import TopicPillsContainer from "../containers/TopicPillsContainer";
+import WidgetListComponent from "./WidgetListComponent";
+import WidgetListContainer from "../containers/WidgetListContainer";
 
 
 class CourseEditorComponent extends Component {
@@ -26,13 +25,21 @@ class CourseEditorComponent extends Component {
         const moduleId = this.props.match.params.moduleId
         //console.log("moduleId", moduleId)
 
+        const lessonId = this.props.match.params.lessonId
+
+        const topicId = this.props.match.params.topicId
+
+
         if (moduleId) {
             this.props.findLessonsForModule(moduleId)
         }
 
-        const lessonId = this.props.match.params.lessonId
         if (lessonId) {
             this.props.findTopicsForLesson(lessonId)
+        }
+
+        if (topicId) {
+            this.props.findWidgetsForTopic(topicId)
         }
 
     }
@@ -50,6 +57,18 @@ class CourseEditorComponent extends Component {
                 this.props.findTopicsForLesson(lessonId)
             }
         }
+
+        const topicId = this.props.match.params.topicId
+        if (topicId !== prevProps.match.params.topicId) {
+            this.props.findWidgetsForTopic(topicId)
+        }
+
+        const currentOrder = this.props.currentOrder
+
+        if(currentOrder != prevProps.currentOrder){
+            this.props.findWidgetsForTopic(topicId)
+        }
+
     }
 
     render() {
@@ -66,9 +85,10 @@ class CourseEditorComponent extends Component {
 
                     <div className="col-8">
                         <LessonTabsContainer/>
-                        <div className="my-5">
-                            <TopicPillsContainer/>
-                        </div>
+                        <TopicPillsContainer/>
+
+                        <WidgetListContainer/>
+
                     </div>
                 </div>
             </div>

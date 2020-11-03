@@ -5,6 +5,8 @@ import TopicService from "../services/TopicService";
 
 const stateToPropsMapper = (state) => {
     return ({
+        course: state.courseReducer.course,
+        moduleId: state.lessonReducer.moduleId,
         topics: state.topicReducer.topics,
         lessonId: state.topicReducer.lessonId
     })
