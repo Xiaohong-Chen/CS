@@ -1,6 +1,8 @@
 import React from "react";
 import ParagraphWidgetComponent from "./widgets/ParagraphWidgetComponent";
 import HeadingWidgetComponent from "./widgets/HeadingWidgetComponent";
+import ListWidgetComponent from "./widgets/ListWidgetComponent";
+import ImageWidgetComponent from "./widgets/ImageWidgetComponent";
 
 const WidgetListComponent = ({preview, topicId, widgets = [], createWidget, deleteWidget, previewToggleChange, editWidget, updateWidget, findWidgetsForTopic}) =>
     <div>
@@ -61,14 +63,22 @@ const WidgetListComponent = ({preview, topicId, widgets = [], createWidget, dele
                         {
                             widget.type === "Paragraph" &&
                             <ParagraphWidgetComponent widget={widget}
-                                                      deleteWidget={deleteWidget}
                                                       editWidget={editWidget}/>
                         }
                         {
                             widget.type === "Heading" &&
                             <HeadingWidgetComponent widget={widget}
-                                                    deleteWidget={deleteWidget}
                                                     editWidget={editWidget}/>
+                        }
+                        {
+                            widget.type === "List" &&
+                            <ListWidgetComponent widget={widget}
+                                                 editWidget={editWidget}/>
+                        }
+                        {
+                            widget.type === "Image" &&
+                            <ImageWidgetComponent widget={widget}
+                                                  editWidget={editWidget}/>
                         }
                     </li>
                 )

@@ -45,6 +45,15 @@ class CourseEditorComponent extends Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
+
+        const courseId = this.props.match.params.courseId
+        if (courseId !== prevProps.match.params.courseId) {
+            if (courseId) {
+                this.props.findModulesForCourse(courseId)
+
+            }
+        }
+
         const moduleId = this.props.match.params.moduleId
         if (moduleId !== prevProps.match.params.moduleId) {
             if (moduleId) {
@@ -55,13 +64,16 @@ class CourseEditorComponent extends Component {
         if (lessonId !== prevProps.match.params.lessonId){
             if(lessonId){
                 this.props.findTopicsForLesson(lessonId)
+                alert(lessonId)
             }
         }
 
         const topicId = this.props.match.params.topicId
         if (topicId !== prevProps.match.params.topicId) {
             this.props.findWidgetsForTopic(topicId)
+
         }
+
 
         const currentOrder = this.props.currentOrder
 

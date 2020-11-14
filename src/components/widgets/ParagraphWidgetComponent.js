@@ -1,6 +1,6 @@
 import React from "react";
 
-const ParagraphWidgetComponent = ({widget, deleteWidget, editWidget}) =>
+const ParagraphWidgetComponent = ({widget, editWidget}) =>
 
     <div>
         <textarea className="form-control my-4"

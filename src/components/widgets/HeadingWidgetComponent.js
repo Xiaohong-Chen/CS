@@ -1,6 +1,6 @@
 import React from "react";
 
-const HeadingWidgetComponent = ({widget, deleteWidget, editWidget}) =>
+const HeadingWidgetComponent = ({widget,editWidget}) =>
 
     <div>
         <select className="custom-select "
