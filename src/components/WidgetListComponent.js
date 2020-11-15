@@ -54,10 +54,12 @@ const WidgetListComponent = ({preview, topicId, widgets = [], createWidget, dele
                                     <option selected disabled>Select Type</option>
                                     <option value="Paragraph">Paragraph</option>
                                     <option value="Heading">Heading</option>
+                                    <option value="List">List</option>
+                                    <option value="Image">Image</option>
                                 </select>
 
                                 <button className="fa fa-times fa-2x btn btn-danger ml-1 widgetButton"
-                                        onClick={() => deleteWidget(widget.id)}/>
+                                        onClick={() => deleteWidget(widget.id,topicId)}/>
                             </div>
                         </div>
                         {

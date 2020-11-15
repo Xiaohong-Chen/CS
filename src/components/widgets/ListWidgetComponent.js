@@ -1,7 +1,7 @@
 import React from "react";
 import ImageWidgetComponent from "./ImageWidgetComponent";
 
-const ListWidgetComponent = (widget,editWidget) =>
+const ListWidgetComponent = ({widget, editWidget}) =>
     <div>
         <textarea className="form-control my-4"
                   value={widget.text}
@@ -17,6 +17,24 @@ const ListWidgetComponent = (widget,editWidget) =>
             <option value="ul">Unordered List</option>
             <option value="ol">Ordered List</option>
         </select>
+
+        <div>
+            <h1>Preview</h1>
+
+            {
+                widget.cssClass == "ol" &&
+                <ol>
+                    {widget.text.split("\n").map(line =><li>{line}</li>) }
+                </ol>
+            }
+            {
+                widget.cssClass == "ul" &&
+                <ul>
+                    {widget.text.split("\n").map(line =><li>{line}</li>) }
+                </ul>
+            }
+        </div>
     </div>
+
 
 export default ListWidgetComponent

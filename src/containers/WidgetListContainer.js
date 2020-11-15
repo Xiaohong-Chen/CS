@@ -25,7 +25,7 @@ const dispatchToPropsMapper = (dispatch) => {
             })
                 .then(widget => dispatch({type: "CREATE_WIDGET", widget})),
 
-            deleteWidget: (widgetId) => WidgetService.deleteWidget(widgetId)
+            deleteWidget: (widgetId, topicId) => WidgetService.deleteWidget(widgetId,topicId)
                 .then(status => dispatch({type: "DELETE_WIDGET", widgetId})),
 
             previewToggleChange: (value) => dispatch({type: "PREVIEW_TOGGLE_CHANGE", value}),

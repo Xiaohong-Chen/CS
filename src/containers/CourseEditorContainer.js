@@ -13,7 +13,7 @@ const stateToPropsMapper = (state) => {
             modules: state.moduleReducer.modules,
             course: state.courseReducer.course,
             widgets: state.widgetReducer.widgets,
-            currentOrder: state.widgetReducer.currentOrder
+            editing: state.widgetReducer.editing
         }
     )
 }

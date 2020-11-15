@@ -2,7 +2,7 @@ const initialState = {
     widgets: [],
     topicId: "",
     preview: true,
-    currentOrder:0
+    editing: false
 }
 
 const widgetReducer = (state = initialState, action) => {
@@ -31,7 +31,8 @@ const widgetReducer = (state = initialState, action) => {
             return (
                 {
                     ...state,
-                    widgets: state.widgets.filter(widget => widget.id !== action.widgetId)
+                    widgets: state.widgets.filter(widget => widget.id !== action.widgetId),
+                    editing: !state.editing
                 }
             )
 
@@ -54,7 +55,7 @@ const widgetReducer = (state = initialState, action) => {
                 {
                     ...state,
                     widgets: state.widgets.map(widget => widget.id !== action.widget.id ? widget : action.widget),
-                    currentOrder: state.currentOrder+1
+                    editing: !state.editing
                 }
             )
 

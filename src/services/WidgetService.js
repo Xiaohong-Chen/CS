@@ -33,8 +33,9 @@ const updateWidget = (wid, widget) =>
         }
     })
         .then(response => response.json())
-const deleteWidget = (wid) =>
-    fetch(`${WIDGET_URL}/${wid}`, {
+
+const deleteWidget = (wid,tid) =>
+    fetch(`${TOPIC_URL}/${tid}/widgets/${wid}`, {
         method: "DELETE"
     })
         .then(response => response.json())
